@@ -1,0 +1,40 @@
+<div  class="container">
+    <div class="card table-responsive">
+      <div class="card-header">Listado de Usuarios Registrados en el Sistema</div>
+      <div class="card-body text-primary">
+        <h5 class="card-title">Usuarios de COSPAS</h5>
+        <button type="button" class="btn btn-primary" [routerLink]="['/usuarios/form']">Crear Usuario</button>
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th >#</th>
+              <th >Nombres</th>
+              <th >Apellidos</th>
+              <th >Email</th>
+              <th >Cedula</th>
+              <th >Fecha</th>
+              <th >Editar</th>
+              <th >Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr  *ngFor="let usuario of usuarios">
+              <td>{{usuario.id}}</td>
+              <td>{{usuario.nombres}}</td>
+              <td>{{usuario.apellidos}}</td>
+              <td>{{usuario.email}}</td>
+              <td>{{usuario.numeroDocumento}}</td>
+              <td>{{usuario.fecha}}</td>
+              <td>
+                <button class="btn btn-primary" type="button" name="editar" [routerLink]="['/usuarios/form', usuario.id]">Editar</button>
+              </td>
+              <td>
+                <button class="btn btn-danger" type="button" name="eliminar" (click)="delete(usuario)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

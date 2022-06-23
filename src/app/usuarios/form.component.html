@@ -1,0 +1,37 @@
+<div class="card bg-dark text-white container">
+<div class="card-header">{{titulo}}</div>
+<div class="card-body">
+    <form >
+        <div class="mb-3">
+          <label for="" class="form-label">Nombres del Usuario</label>
+          <input type="text" class="form-control" name ="nombre" [(ngModel)]="usuario.nombres">
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Apellidos del Usuario</label>
+          <input type="text" class="form-control" name="apellido" [(ngModel)]="usuario.apellidos" >
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" [(ngModel)]="usuario.email" >
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Tipo Documento</label>
+          <input type="text" class="form-control" name="tipoDocumento" [(ngModel)]="usuario.tipoDocumento" >
+      </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Numero Documento</label>
+            <input type="text" class="form-control" name="documento" [(ngModel)]="usuario.numeroDocumento">
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Edad</label>
+          <input type="number" class="form-control" name="edad" [(ngModel)]="usuario.edad">
+      </div>
+        <button class="btn btn-primary" role="button" (click)='create()' *ngIf="!usuario.id else elseBlock">Crear Usuario</button>
+        <ng-template #elseBlock>
+          <button class="btn btn-primary" role="button" (click)='update()'>Editar Usuario</button>
+        </ng-template>
+      </form>
+</div>
+</div>
+
+
